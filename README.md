@@ -17,8 +17,8 @@ Astar 알고리즘을 변형하여 이용한 2D맵 게임입니다.\
 시작화면에서 h를 눌러서 하드코어 모드를 플레이할 수 있습니다.\
 
 ### credit
-Astar 알고리즘 코드는 https://github.com/ralphgoodtimes/astar-plain-c 를 사용했습니다./
-Astar 알고리즘을 공부하며 개인블로그에 내용을 간단히 정리해 두었습니다. https://minseob.tistory.com/13 /
+Astar 알고리즘 코드는 https://github.com/ralphgoodtimes/astar-plain-c 를 사용했습니다.\
+Astar 알고리즘을 공부하며 개인블로그에 내용을 간단히 정리해 두었습니다. https://minseob.tistory.com/13 \ 
 
 ### License
 
