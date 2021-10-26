@@ -1,18 +1,6 @@
  /*
-10.6 CIN ¸Å¹ø ¿À·ù¶ß´Â ºÎºĞ ±×³É ÁÖ¼®Ã³¸®ÇØ³õÀ½ 
-10.70 ¿¡ÀÌ½ºÅ¸¸¸ ±¸ÇöÇÏ¸é..¤Ì¤Ì 
-10.10 ±×·¡µµ ²Ï ±¸ÇöÇÔ ¹ö±×Á»¸¸ °íÄ¡°í Àû ¼ÒÈ¯ Àß ½ÃÅ°°í ÇÃ·¹ÀÌ¾î ÀÌµ¿¹®Á¦ ½ºÄÚ¾î¶û ¾î¶»°Ô ÇØºÁ ±×¸®°í °ÔÀÓ¼º ¾î¶»°Ô ¸¸µéÁö ±¸»óÁ» 
-10.17 ¼öÇàÆò°¡ Á¦Ãâ ÁØºñ ³¡! 
-°íÄ¥ºÎºĞ:
-1)½ºÄÚ¾î ·£´õ¸µÇÒ¶§ Áßº¹(ÀÏ´Ü ÁÖ¼®ÇØ³õÀ½) ->ÇØ°á 
-2)º® ³õ´Â°Ô ÀÚ¿¬½º·´Áö ¸øÇÔ->ÇØ°á 
-3)¿¡ÀÌ½ºÅ¸ ¿Ö ³ÖÀº ÁÂÇ¥°¡ º®ÀÌ¶ó°í ¶ß´Â°ÇÁö ÀÌÇØ°¡ ¾È°¨ ->ÇØ°á
-4)¸Ê Àç¹ÌÀÖ°Ô ¼öÁ¤ ÇÊ¿ä->ÃßÈÄ Á¦ÀÛ 
-5) Àû¸¸ Åë°úÇÒ¼öÀÖ´Â º® Á¦ÀÛ 
-6) »ö³Ö±â 
+2021.10.26 made by kms
 */
-
-
 
 
 
@@ -46,7 +34,7 @@ int wall_check=0;
 int map[1000][1000]={
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
-	//---------------------------------------------------------------------------------À§ µÎ ÇàÀº °ø¹éÃ³¸® 
+	//---------------------------------------------------------------------------------ìœ„ ë‘ í–‰ì€ ê³µë°±ì²˜ë¦¬ 
 	
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,},
@@ -100,15 +88,15 @@ struct enemies{
 	int show;
 }enemy[MAXENEMY];
 
-void setColor(int text) {//0 = °ËÁ¤»ö, 1 = ÆÄ¶õ»ö ,2 = ÃÊ·Ï»ö,3 = ¿Á»ö ,4 = »¡°£»ö,5 = ÀÚÁÖ»ö ,6 = ³ë¶õ»ö,7 = Èò»ö ,8 = È¸»ö,9 = ¿¬ÇÑ ÆÄ¶õ»ö ,10 = ¿¬ÇÑ ÃÊ·Ï»ö,11 = ¿¬ÇÑ ¿Á»ö ,12 = ¿¬ÇÑ »¡°£»ö,13 = ¿¬ÇÑ ÀÚÁÖ»ö ,14 = ¿¬ÇÑ ³ë¶õ»ö,15 = ÁøÇÑ Èò»ö 
+void setColor(int text) {//0 = ê²€ì •ìƒ‰, 1 = íŒŒë€ìƒ‰ ,2 = ì´ˆë¡ìƒ‰,3 = ì˜¥ìƒ‰ ,4 = ë¹¨ê°„ìƒ‰,5 = ìì£¼ìƒ‰ ,6 = ë…¸ë€ìƒ‰,7 = í°ìƒ‰ ,8 = íšŒìƒ‰,9 = ì—°í•œ íŒŒë€ìƒ‰ ,10 = ì—°í•œ ì´ˆë¡ìƒ‰,11 = ì—°í•œ ì˜¥ìƒ‰ ,12 = ì—°í•œ ë¹¨ê°„ìƒ‰,13 = ì—°í•œ ìì£¼ìƒ‰ ,14 = ì—°í•œ ë…¸ë€ìƒ‰,15 = ì§„í•œ í°ìƒ‰ 
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), text);
 }
 void printMap(int x,int y){
 	gotoxy(x*2,y);
-	if(map[y][x]==1)printf("¡á");
+	if(map[y][x]==1)printf("â– ");
 	else if(map[y][x]==9){
 		setColor(6); 
-		printf("¡Ú");
+		printf("â˜…");
 		setColor(7);
 	}else printf("  ");
 } 
@@ -125,7 +113,7 @@ void playerMove(){
 	}
 	
 	if(GetAsyncKeyState(VK_UP) < 0||GetAsyncKeyState(0x57)){
-		if(posy-1<start||map[posy-1][posx]==1)return;//¸Ê ¹ÛÀ¸·Î ³ª°¡´Â °æ¿ì Ã¼Å© 
+		if(posy-1<start||map[posy-1][posx]==1)return;//ë§µ ë°–ìœ¼ë¡œ ë‚˜ê°€ëŠ” ê²½ìš° ì²´í¬ 
 		player_draw(0);
 		posy--;
 		wallPut(posx,posy+1);
@@ -159,10 +147,10 @@ void playerMove(){
 	
 }	
  
-int player_draw(int type){//type 1: ÇÃ·¹ÀÌ¾î À§Ä¡ ÀÌµ¿, type 0:Áö³ª¿Â Ä­ ¸Ê Ç¥½Ã 
+int player_draw(int type){//type 1: í”Œë ˆì´ì–´ ìœ„ì¹˜ ì´ë™, type 0:ì§€ë‚˜ì˜¨ ì¹¸ ë§µ í‘œì‹œ 
 	gotoxy(posx*2,posy);
 	if(type==1){ 
-		printf("¡Û");
+		printf("â—‹");
 		
 	}else{
 		printMap(posx,posy);
@@ -196,7 +184,7 @@ void init(){
     ConsoleCursor.dwSize = 1;
 
     SetConsoleCursorInfo(hConsole , &ConsoleCursor);
-    SetConsoleMode(GetStdHandle(STD_OUTPUT_HANDLE), ENABLE_PROCESSED_INPUT | ENABLE_MOUSE_INPUT); //¸¶¿ì½º ÀÔ·Â¸ğµå·Î ¹Ù²Ş
+    SetConsoleMode(GetStdHandle(STD_OUTPUT_HANDLE), ENABLE_PROCESSED_INPUT | ENABLE_MOUSE_INPUT); //ë§ˆìš°ìŠ¤ ì…ë ¥ëª¨ë“œë¡œ ë°”ê¿ˆ
     DWORD CIN;
 	DWORD mode;
 
@@ -268,7 +256,7 @@ void GameOver(char a[]){
 	gotoxy(GAME_WIDTH / 2 - 8, GAME_HEIGHT / 2 + 2);
 	printf("difficulty : %d Time : %d",difficulty,score);
 	gotoxy(GAME_WIDTH / 2 + 20, GAME_HEIGHT - 2);
-	printf("1306 ±è¹Î¼·");
+	printf("1306 ê¹€ë¯¼ì„­");
 	gotoxy(0,50);
 	Sleep(1000);
 	exit(0);
@@ -304,7 +292,7 @@ void ui(){
 	gotoxy(GAME_WIDTH / 2 - 12, GAME_HEIGHT / 2 + 4);
 	printf("-Press 'h' to play HardMode");
 	gotoxy(GAME_WIDTH / 2 + 20, GAME_HEIGHT - 2);
-	printf("1306 ±è¹Î¼·");
+	printf("1306 ê¹€ë¯¼ì„­");
 	        
 	getch();
 	if(GetAsyncKeyState(0x48))difficulty=2;
@@ -336,7 +324,7 @@ void End(){
 	gotoxy(GAME_WIDTH / 2 - 9, GAME_HEIGHT / 2 + 4);
 	printf("Your Score : %d",difficulty*(10000-score));
 	gotoxy(GAME_WIDTH / 2 + 20, GAME_HEIGHT - 2);
-	printf("1306 ±è¹Î¼·");
+	printf("1306 ê¹€ë¯¼ì„­");
 	gotoxy(0,50);
 	Sleep(1000);
 	exit(0);
