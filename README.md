@@ -18,7 +18,7 @@ Astar 알고리즘을 변형하여 이용한 2D맵 게임입니다.\
 
 ### credit
 Astar 알고리즘 코드는 https://github.com/ralphgoodtimes/astar-plain-c 를 사용했습니다.\
-Astar 알고리즘을 공부하며 개인블로그에 내용을 간단히 정리해 두었습니다. https://minseob.tistory.com/13 \ 
+Astar 알고리즘을 공부하며 개인블로그에 내용을 간단히 정리해 두었습니다. https://minseob.tistory.com/13 
 
 ### License
 
