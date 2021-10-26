@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-//#include "Astar.h"
 #define MAXSIZE 100
 
 #define MAP_WIDTH  39
