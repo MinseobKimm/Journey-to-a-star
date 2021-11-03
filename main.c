@@ -1,9 +1,16 @@
- /*
-2021.10.26 made by kms
+/*
+ *           _                                     _                    _             
+ *          | |                                   | |                  | |            
+ *          | | ___  _   _ _ __ _ __   ___ _   _  | |_ ___     __ _ ___| |_ __ _ _ __ 
+ *      _   | |/ _ \| | | | '__| '_ \ / _ \ | | | | __/ _ \   / _` / __| __/ _` | '__|
+ *     | |__| | (_) | |_| | |  | | | |  __/ |_| | | || (_) | | (_| \__ \ || (_| | |   
+ *      \____/ \___/ \__,_|_|  |_| |_|\___|\__, |  \__\___/   \__,_|___/\__\__,_|_|   
+ *                                          __/ |                                     
+ *                                         |___/                                      
+ 
+							by  김민섭 https://github.com/MinseobKimm
+							
 */
-
-
-
 #define _CRT_SECURE_NO_WARNINGS
 #include <windows.h>
 #include <stdio.h>
@@ -34,7 +41,7 @@ int wall_check=0;
 int map[1000][1000]={
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
-	//---------------------------------------------------------------------------------위 두 행은 공백처리 
+	//---------------------------------------------------------------------------------위 두 행은 공백처리  
 	
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
 	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,},
@@ -88,7 +95,7 @@ struct enemies{
 	int show;
 }enemy[MAXENEMY];
 
-void setColor(int text) {//0 = 검정색, 1 = 파란색 ,2 = 초록색,3 = 옥색 ,4 = 빨간색,5 = 자주색 ,6 = 노란색,7 = 흰색 ,8 = 회색,9 = 연한 파란색 ,10 = 연한 초록색,11 = 연한 옥색 ,12 = 연한 빨간색,13 = 연한 자주색 ,14 = 연한 노란색,15 = 진한 흰색 
+void setColor(int text) { //0 = 검정색, 1 = 파란색 ,2 = 초록색,3 = 옥색 ,4 = 빨간색,5 = 자주색 ,6 = 노란색,7 = 흰색 ,8 = 회색,9 = 연한 파란색 ,10 = 연한 초록색,11 = 연한 옥색 ,12 = 연한 빨간색,13 = 연한 자주색 ,14 = 연한 노란색,15 = 진한 흰색 
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), text);
 }
 void printMap(int x,int y){
@@ -113,7 +120,7 @@ void playerMove(){
 	}
 	
 	if(GetAsyncKeyState(VK_UP) < 0||GetAsyncKeyState(0x57)){
-		if(posy-1<start||map[posy-1][posx]==1)return;//맵 밖으로 나가는 경우 체크 
+		if(posy-1<start||map[posy-1][posx]==1)return;//맵 밖으로 나가는 경우 체크
 		player_draw(0);
 		posy--;
 		wallPut(posx,posy+1);
@@ -256,9 +263,9 @@ void GameOver(char a[]){
 	gotoxy(GAME_WIDTH / 2 - 8, GAME_HEIGHT / 2 + 2);
 	printf("difficulty : %d Time : %d",difficulty,score);
 	gotoxy(GAME_WIDTH / 2 + 20, GAME_HEIGHT - 2);
-	printf("1306 김민섭");
+	printf("minseobKimm");
 	gotoxy(0,50);
-	Sleep(1000);
+	Sleep(3000);
 	exit(0);
 }
 void CheckGoal(){
@@ -292,7 +299,7 @@ void ui(){
 	gotoxy(GAME_WIDTH / 2 - 12, GAME_HEIGHT / 2 + 4);
 	printf("-Press 'h' to play HardMode");
 	gotoxy(GAME_WIDTH / 2 + 20, GAME_HEIGHT - 2);
-	printf("1306 김민섭");
+	printf("minseobKimm");
 	        
 	getch();
 	if(GetAsyncKeyState(0x48))difficulty=2;
@@ -324,22 +331,13 @@ void End(){
 	gotoxy(GAME_WIDTH / 2 - 9, GAME_HEIGHT / 2 + 4);
 	printf("Your Score : %d",difficulty*(10000-score));
 	gotoxy(GAME_WIDTH / 2 + 20, GAME_HEIGHT - 2);
-	printf("1306 김민섭");
+	printf("minseobKimm");
 	gotoxy(0,50);
-	Sleep(1000);
+	Sleep(3000);
 	exit(0);
 }
 
-/***
- *           _                                     _                    _             
- *          | |                                   | |                  | |            
- *          | | ___  _   _ _ __ _ __   ___ _   _  | |_ ___     __ _ ___| |_ __ _ _ __ 
- *      _   | |/ _ \| | | | '__| '_ \ / _ \ | | | | __/ _ \   / _` / __| __/ _` | '__|
- *     | |__| | (_) | |_| | |  | | | |  __/ |_| | | || (_) | | (_| \__ \ || (_| | |   
- *      \____/ \___/ \__,_|_|  |_| |_|\___|\__, |  \__\___/   \__,_|___/\__\__,_|_|   
- *                                          __/ |                                     
- *                                         |___/                                      
- */
+
 
 
 void update(int j){
@@ -367,5 +365,4 @@ int main(){
     return 0;
 
 }
-
 
