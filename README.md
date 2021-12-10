@@ -1,4 +1,4 @@
-# Journey-to-a-astar
+# Journey-to-a-star
 
 ### About this game
 Astar 알고리즘을 변형하여 이용한 2D맵 게임입니다.\
